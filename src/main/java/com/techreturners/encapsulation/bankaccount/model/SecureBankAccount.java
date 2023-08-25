@@ -2,11 +2,11 @@ package com.techreturners.encapsulation.bankaccount.model;
 
 public class SecureBankAccount {
 
-    private final String ACCOUNTNUMBER;
+    private final String accountNumber;
     private int accountBalance;
 
     public SecureBankAccount(String accountNumber) {
-        this.ACCOUNTNUMBER = accountNumber;
+        this.accountNumber = accountNumber;
         this.accountBalance = 0;
     }
 
@@ -15,8 +15,12 @@ public class SecureBankAccount {
         addReward();
     }
 
-    public void displayAccountBalance() {
-        System.out.println("Your account balance is " + accountBalance);
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public int getAccountBalance() {
+        return accountBalance;
     }
 
     public void debitAmount (int amount) {
