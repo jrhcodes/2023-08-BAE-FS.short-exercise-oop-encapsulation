@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WeatherReporeterTester {
     @ParameterizedTest
@@ -32,5 +31,11 @@ public class WeatherReporeterTester {
         assertEquals(temp, weather.getTemperature());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = { "London", "New York", "Paris", "Munich"})
+    void testIsLocationWhenFalse(String location) {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.RAIN, 0);
+        assertFalse(weather.locationIs(location));
+    }
 
 }
