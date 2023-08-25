@@ -25,4 +25,12 @@ public class WeatherReporeterTester {
         assertEquals(location, weather.getLocation());
     }
 
+    @ParameterizedTest
+    @ValueSource(doubles = { -10000.23, -1, 0, 1, 22349908.0 })
+    void testGetTemperatureReturnsInitialisedLocation(double temp) {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.RAIN, temp);
+        assertEquals(temp, weather.getTemperature());
+    }
+
+
 }
