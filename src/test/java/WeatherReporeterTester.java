@@ -54,4 +54,18 @@ public class WeatherReporeterTester {
         assertEquals("⛄", weather.getWeatherIcon());
     }
 
+    @Test void voidTestIconForCLOUDY() {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.CLOUDY, 0);
+        assertEquals("☁", weather.getWeatherIcon() );
+    }
+
+    @Test void voidTestIconForSUNNY() {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SUNNY, 0);
+        assertEquals("\uD83C\uDF1E", weather.getWeatherIcon());
+    }    @Test void voidTestIconForSUNNY_INTERVALS() {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SUNNY_INTERVALS, 0);
+        assertEquals("⛅", weather.getWeatherIcon() );
+    }
+
+
 }
