@@ -9,6 +9,7 @@ public class WeatherReporter {
 
     private final String location;
     private final double temperature;
+    private final WeatherType weatherType;
 
     public WeatherReporter(String location, WeatherType weatherType, double temperature) {
         if( location==null || location.isBlank() )
@@ -16,16 +17,17 @@ public class WeatherReporter {
 
         this.location = location;
         this.temperature = temperature;
+        this.weatherType = weatherType;
     }
 
-    String getLocation() { return location; };
-    double getTemperature() { return temperature; };
+    public String getLocation() { return location; };
+    public double getTemperature() { return temperature; };
 
-    boolean locationIs(String location) {
+    public boolean locationIs(String location) {
         return this.location.equals(location);
     }
 
-    public String getWeatherIcon(WeatherType weatherType) {
+    public String getWeatherIcon() {
         switch (weatherType) {
             case RAIN -> {
                 return "☔";
