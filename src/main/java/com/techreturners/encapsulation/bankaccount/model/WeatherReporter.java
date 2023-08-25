@@ -4,44 +4,54 @@ import java.text.MessageFormat;
 
 public class WeatherReporter {
 
-    public String location;
-    public double temperature;
+    static final int TEMP_MAX_COMFORTABLE = 30;
+    static final int TEMP_MIN_COMFORTABLE = 10;
 
-    public WeatherReporter(String location, double temperature) {
+    private final String location;
+    private final double temperature;
+
+    public WeatherReporter(String location, WeatherType weatherType, double temperature) {
         this.location = location;
         this.temperature = temperature;
     }
 
-    public String print() {
+    String getLocation() { return location; };
+    double getTemperature() { return temperature; };
 
-        double newTemp = (9.0 / 5.0) * temperature + 32;
-        return MessageFormat.format("I am in {0} and it is {1}. {2}. The temperature in Fahrenheit is {3}.", location, check1(), check2(), newTemp);
-
+    boolean locationIs(String location) {
+        return this.location.equals(location);
     }
 
-    public String check1() {
-        if (location == "London") {
-
-            return "🌦";
-
-        } else if (location == "California") {
-
-            return "🌅";
-
-        } else if (location == "Cape Town") {
-
-            return "🌤";
-
+    public String getWeatherIcon(WeatherType weatherType) {
+        switch (weatherType) {
+            case RAIN -> {
+                return "☔";
+            }
+            case SNOW -> {
+                return "⛄";
+            }
+            case CLOUDY -> {
+                return "☁";
+            }
+            case SUNNY -> {
+                return "\uD83C\uDF1E";
+            }
+            case SUNNY_INTERVALS -> {
+                return "⛅";
+            }
+            default -> {
+                return null;
+            }
         }
-        return "🔆";
     }
 
-    public String check2() {
-        if (temperature > 30) {
+
+    public String describeTemperature() {
+        if (temperature > TEMP_MAX_COMFORTABLE) {
 
             return "It's too hot 🥵!";
 
-        } else if (temperature < 10) {
+        } else if (temperature < TEMP_MIN_COMFORTABLE) {
 
             return "It's too cold 🥶!";
 

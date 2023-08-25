@@ -3,7 +3,6 @@ package com.techreturners.encapsulation.bankaccount.model;
 public class SecureBankAccount {
 
     private final String ACCOUNTNUMBER;
-    private final int REWARDAMOUNT = 50;
     private int accountBalance;
 
     public SecureBankAccount(String accountNumber) {
@@ -25,6 +24,7 @@ public class SecureBankAccount {
     }
 
     private void addReward() {
+        int REWARDAMOUNT = 50;
         accountBalance += REWARDAMOUNT;
     }
 }
