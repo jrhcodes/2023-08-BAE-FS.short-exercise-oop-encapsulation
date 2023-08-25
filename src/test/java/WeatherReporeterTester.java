@@ -37,5 +37,12 @@ public class WeatherReporeterTester {
         WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.RAIN, 0);
         assertFalse(weather.locationIs(location));
     }
+    @ParameterizedTest
+    @ValueSource(strings = { "London", "New York", "Paris", "Munich"})
+    void testIsLocationWhenTrue(String location) {
+        WeatherReporter weather = new WeatherReporter(location, WeatherType.RAIN, 0);
+        assertTrue(weather.locationIs(location));
+    }
+
 
 }
