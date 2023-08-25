@@ -82,4 +82,15 @@ public class WeatherReporterTest {
         assertEquals("It's too hot \uD83E\uDD75!", weather.describeTemperature());
     }
 
+
+    @Test void testDescribeTemperatureFine()
+    {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SNOW, 25);
+        assertEquals("Ahhh...it's just right 😊!", weather.describeTemperature());
+    }
+    @Test void testDescribeTemperatureCold()
+    {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SNOW, 0);
+        assertEquals("It's too cold 🥶!", weather.describeTemperature());
+    }
 }
