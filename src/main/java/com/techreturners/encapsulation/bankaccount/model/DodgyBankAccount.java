@@ -20,7 +20,7 @@ public class DodgyBankAccount {
         return accountBalance;
     }
 
-    public void debitAmount (int amount) {
+    public void debitAmount(int amount) {
         accountBalance -= amount;
     }
 

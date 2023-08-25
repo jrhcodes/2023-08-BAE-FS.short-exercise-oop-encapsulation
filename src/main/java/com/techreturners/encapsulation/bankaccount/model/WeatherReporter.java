@@ -1,7 +1,5 @@
 package com.techreturners.encapsulation.bankaccount.model;
 
-import java.text.MessageFormat;
-
 public class WeatherReporter {
 
     static final int TEMP_MAX_COMFORTABLE = 30;
@@ -12,7 +10,7 @@ public class WeatherReporter {
     private final WeatherType weatherType;
 
     public WeatherReporter(String location, WeatherType weatherType, double temperature) {
-        if( location==null || location.isBlank() )
+        if (location == null || location.isBlank())
             throw new IllegalArgumentException("WeatherReporter(): null or empty location string passed");
 
         this.location = location;
@@ -20,8 +18,13 @@ public class WeatherReporter {
         this.weatherType = weatherType;
     }
 
-    public String getLocation() { return location; };
-    public double getTemperature() { return temperature; };
+    public String getLocation() {
+        return location;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
 
     public boolean locationIs(String location) {
         return this.location.equals(location);

@@ -47,33 +47,39 @@ public class WeatherReporterTest {
     }
 
     @Test
-    void voidTestIconForRAIN() {
+    void testIconForRAIN() {
         WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.RAIN, 0);
         assertEquals("☔", weather.getWeatherIcon());
     }
 
     @Test
-    void voidTestIconForSNOW() {
+    void testIconForSNOW() {
         WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SNOW, 0);
         assertEquals("⛄", weather.getWeatherIcon());
     }
 
     @Test
-    void voidTestIconForCLOUDY() {
+    void testIconForCLOUDY() {
         WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.CLOUDY, 0);
         assertEquals("☁", weather.getWeatherIcon());
     }
 
     @Test
-    void voidTestIconForSUNNY() {
+    void testIconForSUNNY() {
         WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SUNNY, 0);
         assertEquals("\uD83C\uDF1E", weather.getWeatherIcon());
     }
 
     @Test
-    void voidTestIconForSUNNY_INTERVALS() {
+    void testIconForSUNNY_INTERVALS() {
         WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SUNNY_INTERVALS, 0);
         assertEquals("⛅", weather.getWeatherIcon());
+    }
+    
+    @Test void testDescribeTemperatureHot()
+    {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SNOW, 50);
+        assertEquals("It's too hot \uD83E\uDD75!", weather.describeTemperature());
     }
 
 }
