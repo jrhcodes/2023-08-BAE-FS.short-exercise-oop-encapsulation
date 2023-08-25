@@ -28,26 +28,34 @@ public class WeatherReporter {
     }
 
     public String getWeatherIcon() {
+        String weatherIcon;
         switch (weatherType) {
-            case RAIN -> {
-                return "☔";
-            }
-            case SNOW -> {
-                return "⛄";
-            }
-            case CLOUDY -> {
-                return "☁";
-            }
-            case SUNNY -> {
-                return "\uD83C\uDF1E";
-            }
-            case SUNNY_INTERVALS -> {
-                return "⛅";
-            }
-            default -> {
-                return null;
-            }
+
+            case RAIN:
+                weatherIcon = "☔";
+                break;
+
+            case SNOW:
+                weatherIcon = "⛄";
+                break;
+
+            case CLOUDY:
+                weatherIcon = "☁";
+                break;
+
+            case SUNNY:
+                weatherIcon = "\uD83C\uDF1E";
+                break;
+
+            case SUNNY_INTERVALS:
+                weatherIcon = "⛅";
+                break;
+
+            default:
+                weatherIcon = null;
         }
+
+        return weatherIcon;
     }
 
 

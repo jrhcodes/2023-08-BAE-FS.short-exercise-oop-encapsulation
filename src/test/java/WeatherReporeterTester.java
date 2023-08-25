@@ -44,5 +44,14 @@ public class WeatherReporeterTester {
         assertTrue(weather.locationIs(location));
     }
 
+    @Test void voidTestIconForRAIN() {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.RAIN, 0);
+        assertEquals("☔", weather.getWeatherIcon() );
+    }
+
+    @Test void voidTestIconForSNOW() {
+        WeatherReporter weather = new WeatherReporter("Testopia", WeatherType.SNOW, 0);
+        assertEquals("⛄", weather.getWeatherIcon());
+    }
 
 }
