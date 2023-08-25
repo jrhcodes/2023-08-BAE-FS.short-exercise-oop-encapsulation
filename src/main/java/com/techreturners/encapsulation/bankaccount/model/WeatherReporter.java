@@ -11,6 +11,9 @@ public class WeatherReporter {
     private final double temperature;
 
     public WeatherReporter(String location, WeatherType weatherType, double temperature) {
+        if( location==null || location.isBlank() )
+            throw new IllegalArgumentException("WeatherReporter(): null or empty location string passed");
+
         this.location = location;
         this.temperature = temperature;
     }
